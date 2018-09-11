@@ -1,11 +1,5 @@
 # This is an example how to use Lightbend Telemetry (Cinnamon) for Log Correlation
 
-How it work:
-
-`hello-impl` includes `log-correlation` as a dependency that defines LogCorrelationFilter Play Filter that adds random 
-Correlation ID to SLF4J MDC context, only if it's not defined yet and Cinnamon takes care of automatically propagating 
-MDC context between Lagom micro-services.
-
 How to run:
 
 ```
