@@ -1,5 +1,21 @@
 # This is an example how to use Lightbend Telemetry (Cinnamon) for Log Correlation
 
+How it work:
+
+Cinnamon starting 2.10.3 support [log correlation](https://downloads.lightbend.com/cinnamon/docs/2.10.3/extensions/mdc.html#log-correlation).
+
+In order to enable it use next configuration:
+
+```
+cinnamon.slf4j.mdc {
+  log-correlation += automatic-correlation-id
+
+  automatic-correlation-id {
+    name = "X_CORRELATION_ID"
+  }
+}
+``` 
+
 How to run:
 
 ```

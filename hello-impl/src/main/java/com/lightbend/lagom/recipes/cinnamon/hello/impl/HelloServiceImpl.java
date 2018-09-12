@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 import static java.util.concurrent.CompletableFuture.completedFuture;
@@ -36,7 +37,13 @@ public class HelloServiceImpl implements HelloService {
         return msg -> {
             log.info("helloProxy: {}.", id);
             CompletionStage<String> response = helloService.hello(id).invoke(NotUsed.getInstance());
-            return response.thenApply(answer -> "Hello service said: " + answer);
+            return response.thenApply(answer -> {
+                log.info("thenApply {}", id);
+                return "Hello service said: " + answer;
+            }).thenComposeAsync(a -> {
+                log.info("thenComposeAsync {}", id);
+                return CompletableFuture.completedFuture(a);
+            });
         };
     }
 
