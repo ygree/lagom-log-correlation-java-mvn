@@ -37,6 +37,7 @@ public class HelloServiceImpl implements HelloService {
         return msg -> {
             log.info("helloProxy: {}.", id);
             CompletionStage<String> response = helloService.hello(id).invoke(NotUsed.getInstance());
+            // currently Cinnamon doesn't propagate MDC context here as it doesn't support Java CompletionStage composition methods
             return response.thenApply(answer -> {
                 log.info("thenApply {}", id);
                 return "Hello service said: " + answer;
