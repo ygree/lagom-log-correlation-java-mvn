@@ -18,6 +18,8 @@ cinnamon.slf4j.mdc {
 
 How to run:
 
+>NOTE: `mvn lagom:runAll` won't work because it doesn't run Cinnamon Agent
+
 ```
 mvn install                  # builds the service and downloads the Cinnamon agent
 mvn -pl hello-impl exec:exec # runs the hello service
