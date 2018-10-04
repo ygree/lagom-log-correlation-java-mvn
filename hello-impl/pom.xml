@@ -31,7 +31,8 @@
         </dependency>
         <dependency>
             <groupId>com.typesafe.play</groupId>
-            <artifactId>play-netty-server_${scala.binary.version}</artifactId>
+            <!--<artifactId>play-netty-server_${scala.binary.version}</artifactId>-->
+            <artifactId>play-akka-http-server-experimental_${scala.binary.version}</artifactId>
             <version>2.5.18</version>
         </dependency>
         <!-- Use Lagom instrumentation -->
