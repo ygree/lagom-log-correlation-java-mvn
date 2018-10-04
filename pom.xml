@@ -4,7 +4,7 @@
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lightbend.lagom.logcorrelation</groupId>
-    <artifactId>lagom-log-correlation</artifactId>
+    <artifactId>lagom13-log-correlation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
@@ -55,7 +55,7 @@
                             <!-- Play requires the play.http.secret.key property to be set to run in production mode,
                                - but this isn't used in Lagom, so the specific value doesn't matter.
                               -->
-                            <argument>-Dplay.http.secret.key=x</argument>
+                            <argument>-Dplay.crypto.secret=x</argument>
                             <argument>play.core.server.ProdServerStart</argument>
                         </arguments>
                     </configuration>
@@ -136,9 +136,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <scala.binary.version>2.12</scala.binary.version>
+        <scala.binary.version>2.11</scala.binary.version>
 
-        <lagom.version>1.4.6</lagom.version>
+        <lagom.version>1.3.11</lagom.version>
+        <play.version>2.5.18</play.version>
         <cinnamon.version>2.10.3</cinnamon.version>
     </properties>
 
